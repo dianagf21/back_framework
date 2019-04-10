@@ -31,4 +31,12 @@ public class ControllerAif {
 		this.aifId = aifId;
 	}
 	
+	public ControllerAif() {
+		super();
+	}
+	public ControllerAif(Integer controllerAifId,Integer controllerId,Integer aifId) {
+		this.controllerAifId=controllerAifId;
+		this.controllerId=controllerId;
+		this.aifId=aifId;
+	}
 }

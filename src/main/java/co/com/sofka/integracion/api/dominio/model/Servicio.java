@@ -26,5 +26,13 @@ public class Servicio {
 		this.routing = routing;
 	}
 	
+	public Servicio() {
+		super();
+	}
 	
+	public Servicio (Receiver receiver,Controller controller,List<Routing> routing) {
+		this.receiver=receiver;
+		this.controller=controller;
+		this.routing=routing;
+	}
 }

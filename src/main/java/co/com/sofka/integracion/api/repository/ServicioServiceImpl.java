@@ -17,7 +17,6 @@ import co.com.sofka.integracion.api.dominio.model.Receiver;
 import co.com.sofka.integracion.api.dominio.model.ReceiverRepository;
 import co.com.sofka.integracion.api.dominio.model.Routing;
 import co.com.sofka.integracion.api.dominio.model.Servicio;
-
 @Service
 public class ServicioServiceImpl implements ServicioService {
 	//private final Logger log = LoggerFactory.getLogger(ServicioServiceImpl.class);
@@ -101,5 +100,24 @@ public class ServicioServiceImpl implements ServicioService {
 			
 			return(service);
 		}
+		@Override
+		public Servicio addServicio(Legacy legacy, Aif aif, Controller controller, Receiver receiver) {
+
+			legacyRepository.save(legacy);
+			aifRepository.save(aif);
+			controllerRepository.save(controller);
+			
+			ControllerAif controllerAif= new ControllerAif();
+
+			controllerAif.setControllerAifId(aif.getAifId()+1);
+			controllerAif.setAifId(aif.getAifId());
+			controllerAif.setControllerId(controller.getControllerId());
+			
+			controllerAifRepository.save(controllerAif);
+			receiverRepository.save(receiver);
+			
+			return null;
+		}
+		
 	}
 
